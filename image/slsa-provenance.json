@@ -1,0 +1,47 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "subject": [
+    {
+      "name": "ghcr.io/vishal-chdhry/artifact-attestation-example",
+      "digest": {
+        "sha256": "c6a391cce4d5a75275e19557ef73679ef4bac73017365a199dc7406a8e5d396c"
+      }
+    }
+  ],
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://slsa-framework.github.io/github-actions-buildtypes/workflow/v1",
+      "externalParameters": {
+        "workflow": {
+          "path": ".github/workflows/build-attested-image.yaml",
+          "ref": "refs/heads/main",
+          "repository": "https://github.com/vishal-chdhry/artifact-attestation-example"
+        }
+      },
+      "internalParameters": {
+        "github": {
+          "event_name": "push",
+          "repository_id": "796156483",
+          "repository_owner_id": "72007651"
+        }
+      },
+      "resolvedDependencies": [
+        {
+          "digest": {
+            "gitCommit": "953163a841f239dd1d3e50846498ea61e741adc9"
+          },
+          "uri": "git+https://github.com/vishal-chdhry/artifact-attestation-example@refs/heads/main"
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://github.com/actions/runner/github-hosted"
+      },
+      "metadata": {
+        "invocationId": "https://github.com/vishal-chdhry/artifact-attestation-example/actions/runs/8955981305/attempts/1"
+      }
+    }
+  }
+}

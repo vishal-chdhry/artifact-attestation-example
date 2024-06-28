@@ -15,7 +15,6 @@ jobs:
     env:
       REGISTRY: ghcr.io
       IMAGE_NAME: ${{ github.repository }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,9 +28,9 @@ jobs:
         id: push
         uses: docker/build-push-action@v5.0.0
         with:
-          context: .
+          context: ./image
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:artifact-attestation
       - name: Attest
         uses: actions/attest-build-provenance@v1
         id: attest
@@ -39,3 +38,4 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+
